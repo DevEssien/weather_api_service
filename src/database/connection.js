@@ -1,12 +1,3 @@
-// class Database {
-//   constructor() {
-
-//   }
-
-//   connectToDb() {
-
-//   }
-// }
 const { createClient } = require('redis');
 
 function connectToDb() {
