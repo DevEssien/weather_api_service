@@ -14,7 +14,7 @@ class WeatherApiService {
 
     return {
       message: `Fetched Weather report for ${state}, ${country}`,
-      data: response.data,
+      data: response.data,  
     } 
   }
 }

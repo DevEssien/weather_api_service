@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const { defineController } = require('../core/defineController');
 const { WeatherApiService } = require('../services/weatherApi');
+const { requestToKey } = require('../utils/index');
 
 const { fetchCurrentWeatherReport } = WeatherApiService;
 
@@ -14,7 +15,8 @@ const { fetchCurrentWeatherReport } = WeatherApiService;
 // });
 router.get('/:location', defineController({
   async controller(req, res, next) {
-    console.log()
+    console.log(req.path)
+    await requestToKey(req)
     const response = await fetchCurrentWeatherReport(req.params.location);
     req.return(response);
   }
