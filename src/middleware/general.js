@@ -1,6 +1,8 @@
+const { ApiError } = require("../core/apiError");
+
 class GeneralMiddleware {
   static ErrorHandler(error, req, res, next) {
-    if ('getType' in error) {
+    if (error instanceof ApiError) {
       return res.status(error.statusCode).json({
         status: "error",
         name: error.name,

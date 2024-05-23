@@ -12,3 +12,5 @@ class ApiError extends Error {
     return this.errorType;
   }
 }
+
+exports.ApiError = ApiError;
