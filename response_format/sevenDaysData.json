@@ -1,0 +1,40 @@
+{
+  "location": {
+    "city": "San Francisco",
+    "country": "US",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  "forecast": [
+    {
+      "date": "2024-05-23",
+      "temperature": {
+        "min": 15.0,
+        "max": 20.0
+      },
+      "humidity": 70,
+      "pressure": 1013,
+      "wind_speed": 4.0,
+      "wind_direction": "NW",
+      "weather": {
+        "description": "Sunny",
+        "icon": "sunny"
+      }
+    },
+    {
+      "date": "2024-05-24",
+      "temperature": {
+        "min": 16.0,
+        "max": 21.0
+      },
+      "humidity": 68,
+      "pressure": 1011,
+      "wind_speed": 3.5,
+      "wind_direction": "W",
+      "weather": {
+        "description": "Cloudy",
+        "icon": "cloudy"
+      }
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+const rateLimit = require('express-rate-limit');
 const { ApiError } = require("../core/apiError");
 
 class GeneralMiddleware {
@@ -34,6 +35,13 @@ class GeneralMiddleware {
   static DevLog(req, _res, next) {
     console.log(`requesting - ${req.method} ${req.url}`);
     return next();
+  }
+
+  static ApiRequestLimiter() {    
+    return rateLimit({
+      windowMs: 15 * 60 * 1000, 
+      max: 100 
+    });
   }
 }
 

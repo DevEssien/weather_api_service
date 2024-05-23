@@ -1,13 +1,22 @@
 const router = require('express').Router();
-const { Test } = require('../services/test');
 
-const { sample } = Test;
+const { defineController } = require('../core/defineController');
+const { WeatherApiService } = require('../services/weatherApi');
 
-router.get('/test', (req, res, next) => {
-  sample()
-  return res.json({
-    message: 'test'
-  })
-});
+const { fetchCurrentWeatherReport } = WeatherApiService;
 
+// router.get('/:location/', async (req, res, next) => {
+//   const data = await fetchCurrentWeatherReport(req.params.location)
+//   return res.status(200).json({
+//     message: 'fetched data',
+//     data: data
+//   })
+// });
+router.get('/:location', defineController({
+  async controller(req, res, next) {
+    console.log()
+    const response = await fetchCurrentWeatherReport(req.params.location);
+    req.return(response);
+  }
+}))
 exports.weatherRoutes = router;

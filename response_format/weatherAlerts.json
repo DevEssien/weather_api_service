@@ -1,0 +1,24 @@
+{
+  "location": {
+    "city": "San Francisco",
+    "country": "US",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  "alerts": [
+    {
+      "title": "Heat Advisory",
+      "description": "Temperatures are expected to exceed 35°C.",
+      "severity": "moderate",
+      "start_time": "2024-05-23T14:00:00Z",
+      "end_time": "2024-05-23T20:00:00Z"
+    },
+    {
+      "title": "Wind Advisory",
+      "description": "Strong winds expected, with gusts up to 50 mph.",
+      "severity": "minor",
+      "start_time": "2024-05-24T08:00:00Z",
+      "end_time": "2024-05-24T18:00:00Z"
+    }
+  ]
+}
