@@ -14,6 +14,5 @@ exports.requestToKey = async function(req) {
     query: req.query,
     body: req.body
   }
-  console.log(`${req.url}@${hash.sha1(requestDataToHash)}`);
   return `${req.url}@${hash.sha1(requestDataToHash)}`
 }
