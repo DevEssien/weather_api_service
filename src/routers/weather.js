@@ -6,7 +6,7 @@ const { WeatherApiService } = require('../services/weatherApi');
 
 const { fetchCurrentWeatherReport } = WeatherApiService;
 
-router.get('/:location', defineController({
+router.get('/:location', cache, defineController({
   async controller(req, res, next) {
     const response = await fetchCurrentWeatherReport(req.params.location);
     req.return(response);

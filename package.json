@@ -21,6 +21,7 @@
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.5",
+    "node-cache": "^5.1.2",
     "node-redis": "^0.1.7",
     "object-hash": "^3.0.0",
     "redis": "^4.6.11"

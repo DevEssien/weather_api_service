@@ -1,9 +1,7 @@
-const { createClient } = require('redis');
-
 class Database {
-  constructor() {
-    this.client = createClient()
-    this.connectToRedis();
+  constructor(DatabasePackage) {
+    this.client = DatabasePackage;
+    this.connectToDb();
   }
 
   static getInstance() {
@@ -13,23 +11,9 @@ class Database {
     return Database.instance.client;
   }
 
-  async connectToRedis() {
+  async connectToDb() {
     try {
-      const client = await this.client;
-      console.log('cli ', Object.keys(client))
-      client.on('connect', () => console.log("- Connected to Redis Successfully 🎉"));
-      
-      client.on('ready', () => console.log('- client connected to redis and ready to use ✈'));
-      
-      client.on('error', (error) => {
-        console.log("Error:: Redis connection error");
-        console.log(error)
-      });
-      
-      client.on('end', () => console.log('client disconnected'));
-      process.on('SIGINT', () => client.quit());
-  
-      await client.connect();
+      //code
     } catch (error) {
       console.log(error);
     }
