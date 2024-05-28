@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const { apiRoutes} = require('./routers/index');
 const { GeneralMiddleware } = require('./middleware/general');
+const { Cache } = require('./database/repositories/cache.repo');
 
 const { ErrorHandler, NotFoundHandler, DevLog } = GeneralMiddleware;
 const app = express();
@@ -17,5 +18,11 @@ app.use(apiBase, apiRoutes);
 
 app.use(ErrorHandler);
 app.use(NotFoundHandler);
+
+// async function run() {
+//   const result = await Cache.deleteData('/portharcourt,nigeria@c0004b1d98e598127f787c287aaf7c0db94454f1', );
+//   console.log('result ', result);
+// }
+// run()
 
 exports.app = app;

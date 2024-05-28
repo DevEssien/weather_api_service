@@ -1,13 +1,14 @@
-const NodeCache = require('node-cache');
+const { Database } = require('../connection');
 
 class CacheRepo {
   constructor(cache){
     this.cache = cache; 
   }
-  async writeData(key, data, options) {
-    return new Promise((resolve, reject) => {
+  async writeData(key, data) {
+    return new Promise(async (resolve, reject) => {
       try {
-        const setCache = this.cache.set(key, data, options);
+        const datatoJson = JSON.stringify(data);
+        const setCache = this.cache.set(key, datatoJson, "EX", 60);
         if (!setCache) return reject(false);
         return resolve(setCache);
       } catch (error) {
@@ -30,8 +31,21 @@ class CacheRepo {
       }
     })
   }
+ 
+  async deleteData(key) {
+    return new Promise((resolve, reject) => {
+      const deletedData = this.cache.del(key);
+      try {
+        if (!deletedData ) return reject(undefined);
+        return resolve(deletedData);
+      } catch (error) {
+        console.error('Failed to delete ', key);
+        console.log(error)
+      }
+    })
+  }
 }
 
-const cache = new NodeCache();
+const cache = Database.getInstance();
 
 exports.Cache = new CacheRepo(cache);

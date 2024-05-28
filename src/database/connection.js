@@ -1,28 +1,26 @@
-class Database {
-  constructor(DatabasePackage) {
-    this.client = DatabasePackage;
-    this.connectToDb();
-  }
+const Redis = require('ioredis');
 
+class Database {
+  constructor() {
+    this.client = new Redis();
+    return this.connectToDb();
+  }
+ 
   static getInstance() {
     if (!Database.instance) {
       Database.instance = new Database();
     }
-    return Database.instance.client;
+    return Database.instance;
   }
 
-  async connectToDb() {
+  connectToDb() {
     try {
-      //code
+      if (this.client) console.log('- connected to redis successfully🎉')
+     return this.client;
     } catch (error) {
       console.log(error);
     }
   }
-}
-
-exports.isRedisWorking = () => {
-  if (!Database.getInstance()) return false;
-  return true;
 }
 
 exports.Database = Database;
